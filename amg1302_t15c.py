@@ -33,13 +33,8 @@ def amg1302_t15c(mac):
 		seed = new_seed | seed_modifier
 
 	charset = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-	moduli = []
-	for i in pseudo_random:
-		moduli.append(i % len(charset))
-
-	password = []
-	for i in moduli:
-		password.append(charset[i])
+	moduli = [i % len(charset) for i in pseudo_random]
+	password = [charset[i] for i in moduli]
 
 	L3 = pseudo_random[0] % 10
 	L6 = pseudo_random[1] % 26
